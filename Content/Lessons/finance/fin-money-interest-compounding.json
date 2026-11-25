@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "id": "fin-money-interest-compounding",
+  "topic": "finance",
+  "order": 1,
+  "title": "Money, Interest & Compounding",
+  "goal": "Understand what money does, how simple and compound interest differ, and why time is the strongest lever.",
+  "minutes": 12,
+  "contentVersion": 1,
+  "sections": [
+    {
+      "id": "hook", "type": "hook", "computed": "$1,000 × 1.07^40",
+      "headline": "$1,000, left alone for 40 years.",
+      "body": "At 7% a year, it grows to about **$14,974**, and nobody added a cent. This lesson is about where the other $13,974 came from, and why the same math works against you on debt.",
+      "visual": { "kind": "bigNumber", "value": 14974.46, "decimals": 0, "prefix": "$", "label": "after 40 years at 7%", "countUp": true,
+                  "dataKind": "computed", "dataNote": "1,000 × 1.07^40. A steady 7% is a simplification; real returns go up and down.",
+                  "accessibilityLabel": "About fourteen thousand nine hundred seventy-four dollars." }
+    },
+    {
+      "id": "functions", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "What money is for",
+      "body": "Economists define money by what it does. It's a **medium of exchange** (it sits between buyer and seller), a **store of value** (it keeps buying power over time), a **unit of account** (the ruler we measure prices with) and a **standard of deferred payment** (debts are written in it).",
+      "visual": { "kind": "diagram", "layout": "grid",
+        "nodes": [
+          { "id": "a", "label": "Medium of exchange", "symbol": "arrow.left.arrow.right", "style": "filled", "step": 1 },
+          { "id": "b", "label": "Store of value", "symbol": "archivebox", "style": "filled", "step": 2 },
+          { "id": "c", "label": "Unit of account", "symbol": "ruler", "style": "filled", "step": 3 },
+          { "id": "d", "label": "Deferred payment", "symbol": "calendar.badge.clock", "style": "filled", "step": 4 } ],
+        "accessibilityLabel": "Four jobs of money: medium of exchange, store of value, unit of account, and standard of deferred payment." }
+    },
+    {
+      "id": "barter", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Why not just trade?",
+      "body": "Barter, trading one good straight for another, needs a **double coincidence of wants**: each person must want exactly what the other has. A baker who wants shoes has to find a shoemaker who wants bread. Money breaks that chain, which is why barter is so inefficient for a modern economy.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "baker", "label": "Baker", "detail": "wants shoes", "symbol": "birthday.cake", "style": "outline", "step": 1 },
+          { "id": "shoe", "label": "Shoemaker", "detail": "wants fish, not bread", "symbol": "shoe", "style": "outline", "step": 2 } ],
+        "edges": [ { "from": "baker", "to": "shoe", "label": "no deal", "style": "dashed", "step": 3 } ],
+        "accessibilityLabel": "A baker who wants shoes meets a shoemaker who wants fish, not bread, so there's no deal." }
+    },
+    {
+      "id": "interest", "type": "keyIdea", "symbol": "clock.arrow.circlepath",
+      "statement": "Interest is the price of using money over time.",
+      "body": "Borrow, and you pay it. Save or lend, and you earn it. The question is always the same: *on what amount* is it charged?"
+    },
+    {
+      "id": "simple-vs-compound", "type": "comparison", "computed": "$1,000 at 7% a year: simple = 1,000 × (1 + 0.07t); compound = 1,000 × 1.07^t",
+      "heading": "Simple vs. compound",
+      "columns": [ { "title": "Simple", "symbol": "line.diagonal" }, { "title": "Compound", "symbol": "chart.line.uptrend.xyaxis" } ],
+      "rows": [
+        { "label": "Interest is paid on", "values": [ "The original amount only", "The original amount **plus** past interest" ] },
+        { "label": "After 10 years", "values": [ "$1,700", "$1,967" ] },
+        { "label": "After 40 years", "values": [ "$3,800", "$14,974" ] } ],
+      "takeaway": "Early on they look alike. Given time, compounding pulls away."
+    },
+    {
+      "id": "growth-chart", "type": "chart", "chartKind": "line", "dataKind": "computed",
+      "heading": "Watch them split",
+      "xLabel": "Years", "yLabel": "Balance", "unit": "$",
+      "series": [
+        { "name": "Compound", "points": [
+          { "x": 0, "y": 1000 }, { "x": 5, "y": 1402.55 }, { "x": 10, "y": 1967.15 }, { "x": 15, "y": 2759.03 }, { "x": 20, "y": 3869.68 },
+          { "x": 25, "y": 5427.43 }, { "x": 30, "y": 7612.26 }, { "x": 35, "y": 10676.58 }, { "x": 40, "y": 14974.46 } ] },
+        { "name": "Simple", "points": [
+          { "x": 0, "y": 1000 }, { "x": 5, "y": 1350 }, { "x": 10, "y": 1700 }, { "x": 15, "y": 2050 }, { "x": 20, "y": 2400 },
+          { "x": 25, "y": 2750 }, { "x": 30, "y": 3100 }, { "x": 35, "y": 3450 }, { "x": 40, "y": 3800 } ] } ],
+      "dataNote": "$1,000 at a steady 7% a year, computed every 5 years.",
+      "caption": "Simple interest adds the same amount every year, a straight line. Compound interest adds a percentage of a growing balance, a curve that keeps getting steeper."
+    },
+    {
+      "id": "formula", "type": "textVisual",
+      "heading": "The whole idea in one line",
+      "body": "**P** is what you start with, **r** the yearly rate, **n** how many times a year interest is added, and **t** the number of years. Because **t** sits in the exponent, growth multiplies instead of adding.",
+      "visual": { "kind": "formula", "parts": [
+        { "text": "A", "label": "final amount" }, { "text": " = " }, { "text": "P", "label": "start" },
+        { "text": "(1 + " }, { "text": "r", "label": "rate" }, { "text": "/" }, { "text": "n", "label": "times / yr" }, { "text": ")" },
+        { "text": "ⁿᵗ", "label": "years × n" } ],
+        "accessibilityLabel": "A equals P times, open parenthesis, one plus r over n, close parenthesis, raised to the power n times t." }
+    },
+    {
+      "id": "check-compound", "type": "check",
+      "questions": [
+        { "id": "c1q1", "kind": "trueFalse",
+          "prompt": "With compound interest, you earn interest on interest you've already earned.",
+          "answer": true,
+          "explanation": "That's the difference from simple interest, which only ever pays on the original amount." },
+        { "id": "c1q2", "kind": "multipleChoice",
+          "prompt": "In A = P(1 + r/n)^(nt), why does time matter so much?",
+          "choices": [ "Time is in the exponent, so growth multiplies", "Time is multiplied by P", "Banks pay more to older accounts", "It doesn't: the rate matters most" ],
+          "answer": 0,
+          "explanation": "Each extra year multiplies the balance again rather than adding a fixed amount, so the effect snowballs." } ]
+    },
+    {
+      "id": "rule-of-72", "type": "textVisual", "computed": "72 ÷ 7 = 10.3; exact doubling time = ln 2 ÷ ln 1.07 = 10.24 years",
+      "heading": "A shortcut: the rule of 72",
+      "body": "Divide 72 by the yearly percentage rate to estimate how many years it takes to double. At 7%, 72 ÷ 7 ≈ 10.3 years. The exact answer is 10.24, close enough for mental math. It's an approximation that works best for rates in the single digits.",
+      "visual": { "kind": "formula", "parts": [
+        { "text": "72", "color": "ink" }, { "text": " ÷ " }, { "text": "rate", "label": "% per year" }, { "text": " ≈ " }, { "text": "years", "label": "to double" } ],
+        "accessibilityLabel": "Seventy-two divided by the yearly rate is about the number of years to double." }
+    },
+    {
+      "id": "start-early", "type": "chart", "chartKind": "bar", "dataKind": "computed",
+      "heading": "Real example: the ten-year head start",
+      "xLabel": "Who", "yLabel": "Dollars", "unit": "$",
+      "series": [
+        { "name": "Paid in", "points": [ { "x": "Starts at 20", "y": 108000 }, { "x": "Starts at 30", "y": 84000 } ] },
+        { "name": "Account at 65", "points": [ { "x": "Starts at 20", "y": 758519 }, { "x": "Starts at 30", "y": 360211 } ] } ],
+      "dataNote": "$200 a month, 7% a year compounded monthly, until age 65. Not a prediction: real returns vary year to year.",
+      "caption": "Starting ten years earlier means paying in only $24,000 more, yet ending with about twice as much."
+    },
+    {
+      "id": "card-rate", "type": "textVisual", "sourceRefs": ["s2", "s3"],
+      "heading": "Compounding against you",
+      "body": "On debt, the same math runs in reverse. Credit card interest is quoted as a yearly rate called the **annual percentage rate (APR)**. Across all accounts at US banks, the average was about 21% in the third quarter of 2026.",
+      "visual": { "kind": "bigNumber", "value": 21.19, "decimals": 2, "suffix": "%", "label": "average credit card APR, all accounts, Q3 2026 (preliminary)", "countUp": true, "dataKind": "sourced",
+                  "accessibilityLabel": "Twenty-one point one nine percent average credit card interest rate." }
+    },
+    {
+      "id": "apr-effective", "type": "comparison", "computed": "(1 + 0.12/12)^12 − 1 = 12.68%",
+      "heading": "Quoted rate vs. what really happens",
+      "columns": [ { "title": "Quoted yearly rate" }, { "title": "With monthly compounding" } ],
+      "rows": [
+        { "label": "Example", "values": [ "12.00%", "12.68% a year" ] },
+        { "label": "Why", "values": [ "1% a month × 12", "Each month's interest earns interest too" ] } ],
+      "takeaway": "The more often interest compounds, the more a quoted yearly rate understates the real yearly effect."
+    },
+    {
+      "id": "inflation", "type": "textVisual", "computed": "4% − 3% ≈ 1%, an approximation",
+      "heading": "Growth you can actually spend",
+      "body": "Prices rise too. If your savings earn 4% while prices rise 3%, your money buys only about 1% more than before. Interest that only keeps pace with rising prices isn't making you richer.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "n", "label": "Rate you earn", "detail": "4%", "symbol": "arrow.up", "style": "filled", "step": 1 },
+          { "id": "i", "label": "Prices rise", "detail": "3%", "symbol": "cart", "style": "outline", "step": 2 },
+          { "id": "r", "label": "Real gain", "detail": "about 1%", "symbol": "equal", "style": "filled", "step": 3 } ],
+        "edges": [ { "from": "n", "to": "i", "label": "minus", "style": "line", "step": 2 }, { "from": "i", "to": "r", "style": "arrow", "step": 3 } ],
+        "accessibilityLabel": "Earning 4 percent while prices rise 3 percent leaves a real gain of about 1 percent." }
+    },
+    {
+      "id": "check-debt", "type": "check",
+      "questions": [
+        { "id": "c2q1", "kind": "multipleChoice",
+          "prompt": "Using the rule of 72, about how long does money take to double at 9% a year?",
+          "choices": [ "About 8 years", "About 4 years", "About 12 years", "About 20 years" ],
+          "answer": 0,
+          "explanation": "72 ÷ 9 = 8. The exact figure is about 8.04 years." },
+        { "id": "c2q2", "kind": "trueFalse",
+          "prompt": "A credit card's APR is its interest rate stated as a yearly rate.",
+          "answer": true,
+          "explanation": "That's what the Consumer Financial Protection Bureau says APR means: the interest rate, stated as a yearly rate." } ]
+    },
+    {
+      "id": "payoff", "type": "chart", "chartKind": "bar", "dataKind": "computed",
+      "heading": "Real example: paying off $3,000",
+      "xLabel": "Monthly payment", "yLabel": "Total interest", "unit": "$",
+      "series": [ { "name": "Interest paid", "points": [
+        { "x": "$75 a month (71 months)", "y": 2250 }, { "x": "$100 a month (44 months)", "y": 1310 }, { "x": "$200 a month (18 months)", "y": 516 } ] } ],
+      "dataNote": "A $3,000 balance at 21.19% APR, interest charged monthly (APR ÷ 12), no new purchases.",
+      "caption": "At $75 a month, the balance takes 71 months to clear and costs about $2,250 in interest. At $200 a month, it is gone in 18 months for about $516."
+    },
+    {
+      "id": "habits", "type": "steps", "style": "numbered", "sourceRefs": ["s2"],
+      "heading": "Putting it to work",
+      "steps": [
+        { "title": "Pay card balances in full", "body": "You can avoid paying interest on purchases if you pay your balance in full each month.", "symbol": "creditcard" },
+        { "title": "Attack the highest rate first", "body": "Extra payments save the most where interest compounds fastest.", "symbol": "flame" },
+        { "title": "Start early, even small", "body": "Time is the exponent. Ten extra years can matter more than a bigger deposit.", "symbol": "hourglass" },
+        { "title": "Automate it", "body": "A transfer on payday doesn't depend on remembering or willpower.", "symbol": "repeat" } ]
+    },
+    {
+      "id": "why", "type": "textVisual",
+      "heading": "Why it matters",
+      "body": "Compounding is the quiet force behind savings, student loans, mortgages and credit cards. You can't control markets or rates, but you can control when you start, which debts you pay first and how long money gets to grow.",
+      "visual": { "kind": "symbol", "name": "leaf.arrow.triangle.circlepath", "caption": "Small, early, steady",
+                  "accessibilityLabel": "A leaf with circular arrows, standing for steady growth." }
+    },
+    {
+      "id": "recap", "type": "recap",
+      "bullets": [
+        "Money is a medium of exchange, a store of value, a unit of account and a standard of deferred payment.",
+        "Compound interest earns interest on past interest; because time is in the exponent, starting early matters enormously.",
+        "The same math works against you on debt: high-APR balances grow fast, so pay them first and in full when you can." ]
+    }
+  ],
+  "finalQuiz": [
+    { "id": "f1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "Why is barter inefficient?",
+      "choices": [ "It needs a double coincidence of wants", "Goods can't be traded directly", "It's illegal in most countries", "It requires banks" ],
+      "answer": 0,
+      "explanation": "Each side must want exactly what the other has. Money removes that requirement." },
+    { "id": "f2", "kind": "multipleChoice",
+      "prompt": "$1,000 earns 7% simple interest for 10 years. What's the balance?",
+      "choices": [ "$1,700", "$1,967", "$1,070", "$2,000" ],
+      "answer": 0,
+      "explanation": "Simple interest adds $70 a year: $1,000 + 10 × $70 = $1,700. Compounding would give about $1,967." },
+    { "id": "f3", "kind": "trueFalse",
+      "prompt": "Interest that compounds monthly grows a balance faster than the same yearly rate applied once a year.",
+      "answer": true,
+      "explanation": "Each month's interest starts earning interest right away; 12% compounded monthly works out to about 12.68% a year." },
+    { "id": "f4", "kind": "multipleChoice",
+      "prompt": "Two savers deposit $200 a month at 7%. One starts at 20, the other at 30. At 65, the earlier starter has…",
+      "choices": [ "About twice as much", "About the same", "About 10% more", "Less, because they paid more fees" ],
+      "answer": 0,
+      "explanation": "In the worked example: about $758,519 versus $360,211, from only $24,000 more in deposits." },
+    { "id": "f5", "kind": "trueFalse", "sourceRefs": ["s2"],
+      "prompt": "Paying your credit card balance in full each month can let you avoid interest on purchases.",
+      "answer": true,
+      "explanation": "The CFPB notes you can avoid paying interest on purchases if you pay your balance in full each month." }
+  ],
+  "sources": [
+    { "id": "s1", "kind": "textbook", "title": "Principles of Macroeconomics 3e",
+      "authors": "Greenlaw, S. A., Shapiro, D., & MacDonald, D.", "publisher": "OpenStax",
+      "locator": "§14.1 Defining Money by Its Functions",
+      "url": "https://openstax.org/books/principles-macroeconomics-3e/pages/14-1-defining-money-by-its-functions", "accessed": "2026-11-24" },
+    { "id": "s2", "kind": "government", "title": "What is a credit card interest rate? What does APR mean?",
+      "publisher": "Consumer Financial Protection Bureau", "year": "2023",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-card-interest-rate-what-does-apr-mean-en-44/", "accessed": "2026-11-24" },
+    { "id": "s3", "kind": "government", "title": "Consumer Credit – G.19",
+      "publisher": "Board of Governors of the Federal Reserve System", "year": "2026", "locator": "Release of 6 November 2026, Q3 2026 (preliminary)",
+      "url": "https://www.federalreserve.gov/releases/g19/current/default.htm", "accessed": "2026-11-24" }
+  ],
+  "factCheck": { "checkedOn": "2026-11-24",
+    "notes": "Money's functions and barter from OpenStax §14.1; APR definition and pay-in-full point from the CFPB; 21.19% average APR from the Fed's G.19 release of 6 Nov 2026 (preliminary; update when revised). All other figures are worked math, labeled as computed." }
+}

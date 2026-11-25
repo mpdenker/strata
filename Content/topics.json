@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "topics": [
+    { "id": "psychology", "name": "Psychology", "symbol": "brain.head.profile", "order": 1,
+      "color": { "light": "#D9573B", "dark": "#F07A5E" } },
+    { "id": "science", "name": "Science & Technology", "symbol": "atom", "order": 2,
+      "color": { "light": "#127C7A", "dark": "#3BB8B2" } },
+    { "id": "finance", "name": "Finance & Business", "symbol": "chart.line.uptrend.xyaxis", "order": 3,
+      "color": { "light": "#B07A12", "dark": "#E3AE3F" },
+      "note": "Educational, not financial advice." },
+    { "id": "history", "name": "History", "symbol": "scroll", "order": 4,
+      "color": { "light": "#8A3B78", "dark": "#CC79B9" } },
+    { "id": "philosophy", "name": "Philosophy", "symbol": "building.columns", "order": 5,
+      "color": { "light": "#3E4FA8", "dark": "#8796F0" } }
+  ]
+}

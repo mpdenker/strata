@@ -1,0 +1,10 @@
+# Build output (GitHub Actions rebuilds the site on every push)
+dist/
+# Swift and Xcode
+.build/
+.swiftpm/
+xcuserdata/
+DerivedData/
+# Local tools
+.DS_Store
+.claude/settings.local.json

@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "id": "psy-cognitive-biases",
+  "topic": "psychology",
+  "order": 1,
+  "title": "Cognitive Biases",
+  "goal": "See why the mind's fast shortcuts produce predictable errors, and learn to spot five classic ones.",
+  "minutes": 13,
+  "contentVersion": 1,
+  "sections": [
+    {
+      "id": "hook", "type": "hook", "sourceRefs": ["s1"],
+      "headline": "Estimate this in five seconds.",
+      "body": "**8 × 7 × 6 × 5 × 4 × 3 × 2 × 1**\n\nDon't calculate. Just guess, and hold on to your number. We'll come back to it.",
+      "visual": { "kind": "symbol", "name": "timer", "caption": "Five seconds. Go.",
+                  "accessibilityLabel": "A stopwatch, signalling a five-second time limit." }
+    },
+    {
+      "id": "heuristic", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "A shortcut for hard questions",
+      "body": "A **heuristic** is a mental shortcut: a quick rule that turns a hard judgment into an easy one. Tversky and Kahneman described three in a famous 1974 paper. In general, they wrote, these heuristics are \"quite useful, but sometimes they lead to severe and systematic errors.\"",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "q", "label": "Hard question", "symbol": "questionmark.circle", "style": "outline", "step": 1 },
+          { "id": "h", "label": "Shortcut", "symbol": "bolt", "style": "filled", "step": 2 },
+          { "id": "a", "label": "Fast answer", "symbol": "checkmark.circle", "style": "outline", "step": 3 } ],
+        "edges": [ { "from": "q", "to": "h", "style": "arrow", "step": 2 }, { "from": "h", "to": "a", "style": "arrow", "step": 3 } ],
+        "accessibilityLabel": "A hard question passes through a mental shortcut and comes out as a fast answer." }
+    },
+    {
+      "id": "systematic", "type": "keyIdea", "sourceRefs": ["s1"], "symbol": "scope",
+      "statement": "Biases are systematic, not random.",
+      "body": "Random mistakes scatter in every direction. A bias pushes most people's judgments the *same* way, which makes it predictable. Predictable errors are ones you can learn to catch."
+    },
+    {
+      "id": "anchor-reveal", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Anchoring: the first number sticks",
+      "body": "The real answer is 40,320. In the original study, high school students had five seconds. One group saw 8 × 7 × 6…, the other saw 1 × 2 × 3…. People multiply the first few numbers, then adjust from there, but they adjust too little.",
+      "visual": { "kind": "bigNumber", "value": 40320, "label": "the actual product", "countUp": true, "dataKind": "sourced",
+                  "accessibilityLabel": "The correct answer: forty thousand, three hundred and twenty." }
+    },
+    {
+      "id": "anchor-chart", "type": "chart", "sourceRefs": ["s1"], "chartKind": "bar", "dataKind": "sourced",
+      "heading": "How far off were they?",
+      "xLabel": "Group", "yLabel": "Median estimate",
+      "series": [ { "name": "Estimate", "points": [
+        { "x": "Saw 1 × 2 × 3…", "y": 512 }, { "x": "Saw 8 × 7 × 6…", "y": 2250 }, { "x": "Correct answer", "y": 40320 } ] } ],
+      "dataNote": "Median estimates reported by Tversky & Kahneman (1974).",
+      "caption": "Starting from bigger numbers led to bigger guesses, yet both groups landed far below the truth."
+    },
+    {
+      "id": "wheel", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Even a random anchor works",
+      "body": "In another study, a wheel of fortune was spun in front of people to produce a number. Then they estimated the percentage of African countries in the United Nations. The median answer was 25% for people who got 10, and 45% for people who got 65. Paying them for accuracy didn't remove the effect.",
+      "visual": { "kind": "shapes", "aspectRatio": 1.6, "items": [
+        { "shape": "circle", "x": 0.22, "y": 0.5, "r": 0.15, "fill": "topicSoft", "stroke": "ink", "step": 1 },
+        { "shape": "symbol", "x": 0.22, "y": 0.5, "name": "arrow.up", "size": 0.08, "fill": "ink", "step": 1 },
+        { "shape": "text", "x": 0.22, "y": 0.92, "text": "Wheel of fortune", "textSize": "caption", "step": 1 },
+        { "shape": "text", "x": 0.55, "y": 0.28, "text": "**10**", "textSize": "title", "step": 2 },
+        { "shape": "line", "points": [[0.62, 0.28], [0.78, 0.28]], "arrow": true, "step": 3 },
+        { "shape": "text", "x": 0.88, "y": 0.28, "text": "**25%**", "textSize": "title", "fill": "topic", "step": 3 },
+        { "shape": "text", "x": 0.55, "y": 0.72, "text": "**65**", "textSize": "title", "step": 2 },
+        { "shape": "line", "points": [[0.62, 0.72], [0.78, 0.72]], "arrow": true, "step": 3 },
+        { "shape": "text", "x": 0.88, "y": 0.72, "text": "**45%**", "textSize": "title", "fill": "topic", "step": 3 } ],
+        "accessibilityLabel": "A wheel of fortune. People who got 10 gave a median estimate of 25 percent; people who got 65 estimated 45 percent." }
+    },
+    {
+      "id": "check-anchor", "type": "check",
+      "questions": [
+        { "id": "c1q1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+          "prompt": "Why did people shown 8 × 7 × 6… guess higher than people shown 1 × 2 × 3…?",
+          "choices": [
+            "Their first few multiplications gave bigger numbers, and they adjusted too little from there",
+            "They were better at arithmetic",
+            "They had more time",
+            "Descending lists are easier to read" ],
+          "answer": 0,
+          "explanation": "Both groups computed a few steps and adjusted upward. The starting point, the anchor, was bigger for the descending group, and the adjustment was too small for both." },
+        { "id": "c1q2", "kind": "trueFalse", "sourceRefs": ["s1"],
+          "prompt": "When people were paid for accurate answers, the wheel-of-fortune anchor stopped affecting them.",
+          "answer": false,
+          "explanation": "Tversky and Kahneman reported that payoffs for accuracy did not reduce the anchoring effect." } ]
+    },
+    {
+      "id": "availability", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Availability: easy to recall feels common",
+      "body": "Are there more English words that *start* with r, or that have r *third*? Words starting with r (road) are easier to search for than words with r third (car), so most people say \"first.\" But r and k actually appear more often in the third position.",
+      "visual": { "kind": "shapes", "aspectRatio": 1.8, "items": [
+        { "shape": "rect", "x": 0.05, "y": 0.15, "w": 0.4, "h": 0.6, "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "text", "x": 0.25, "y": 0.35, "text": "**r** _ _", "textSize": "title", "step": 1 },
+        { "shape": "text", "x": 0.25, "y": 0.6, "text": "road, rain, rope…", "textSize": "body", "step": 2 },
+        { "shape": "rect", "x": 0.55, "y": 0.15, "w": 0.4, "h": 0.6, "fill": "paper", "stroke": "ink", "dashed": true, "step": 1 },
+        { "shape": "text", "x": 0.75, "y": 0.35, "text": "_ _ **r**", "textSize": "title", "step": 1 },
+        { "shape": "text", "x": 0.75, "y": 0.6, "text": "car, word, park…", "textSize": "body", "step": 3 },
+        { "shape": "text", "x": 0.25, "y": 0.9, "text": "Easy to recall", "textSize": "caption", "step": 2 },
+        { "shape": "text", "x": 0.75, "y": 0.9, "text": "Actually more common", "textSize": "caption", "fill": "topic", "step": 3 } ],
+        "accessibilityLabel": "Two boxes. Words starting with r, such as road, are easy to recall. Words with r in third place, such as car, are actually more common." }
+    },
+    {
+      "id": "availability-life", "type": "textVisual", "sourceRefs": ["s1"],
+      "body": "The same shortcut shapes how risky the world feels. Seeing a house burn raises the sense that fires are likely more than reading about one does. And people feel traffic accidents are more likely for a while after passing an overturned car.",
+      "visual": { "kind": "diagram", "layout": "column",
+        "nodes": [
+          { "id": "v", "label": "A vivid or recent event", "symbol": "flame", "style": "outline", "step": 1 },
+          { "id": "r", "label": "Easy to bring to mind", "symbol": "brain", "style": "filled", "step": 2 },
+          { "id": "f", "label": "Feels more likely than it is", "symbol": "exclamationmark.triangle", "style": "outline", "step": 3 } ],
+        "edges": [ { "from": "v", "to": "r", "step": 2 }, { "from": "r", "to": "f", "step": 3 } ],
+        "accessibilityLabel": "A vivid or recent event becomes easy to bring to mind, which makes it feel more likely than it is." }
+    },
+    {
+      "id": "steve", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Representativeness: judging by resemblance",
+      "body": "\"Steve is very shy and withdrawn, invariably helpful… A meek and tidy soul.\" Is Steve more likely a librarian or a farmer? People rank the jobs by how much Steve *resembles* each stereotype. But there are many more farmers than librarians, and that base rate should weigh in. Resemblance ignores it.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "d", "label": "Shy, tidy, helpful", "symbol": "person.text.rectangle", "style": "outline", "step": 1 },
+          { "id": "l", "label": "Librarian?", "detail": "looks like the stereotype", "symbol": "books.vertical", "style": "filled", "step": 2 },
+          { "id": "f", "label": "Farmer?", "detail": "far more common", "symbol": "leaf", "style": "muted", "step": 3 } ],
+        "edges": [ { "from": "d", "to": "l", "style": "arrow", "step": 2 }, { "from": "d", "to": "f", "style": "dashed", "label": "ignored", "step": 3 } ],
+        "accessibilityLabel": "A description of Steve points strongly to librarian because of the stereotype; the more common job, farmer, gets ignored." }
+    },
+    {
+      "id": "base-rates", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Base rates get dropped",
+      "body": "In one experiment, people read sketches said to be drawn from 70 engineers and 30 lawyers, or the reverse. With no sketch, they used those odds correctly. Given a deliberately useless sketch, they called it 50–50 either way. A description, even an empty one, pushed the base rate aside.",
+      "visual": { "kind": "iconArray", "total": 100, "columns": 10, "symbol": "person.fill",
+        "groups": [ { "count": 70, "color": "topic", "label": "engineers" }, { "count": 30, "color": "ink", "label": "lawyers" } ],
+        "accessibilityLabel": "One hundred figures: seventy engineers and thirty lawyers." }
+    },
+    {
+      "id": "hospitals", "type": "chart", "sourceRefs": ["s1"], "chartKind": "bar", "dataKind": "sourced",
+      "heading": "Small samples swing more",
+      "xLabel": "Answer", "yLabel": "Students",
+      "series": [ { "name": "Students", "points": [
+        { "x": "Larger hospital", "y": 21 }, { "x": "Smaller hospital", "y": 21 }, { "x": "About the same", "y": 53 } ] } ],
+      "dataNote": "Answers from undergraduates, reported by Tversky & Kahneman (1974).",
+      "caption": "Two hospitals: about 45 births a day in one, 15 in the other. Which records more days when over 60% of babies are boys? Most students said \"about the same.\" The right answer is the smaller one: small samples stray further from 50%."
+    },
+    {
+      "id": "check-reps", "type": "check",
+      "questions": [
+        { "id": "c2q1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+          "prompt": "Which hospital records more days with over 60% boys?",
+          "choices": [ "The smaller hospital", "The larger hospital", "About the same", "It depends on the season" ],
+          "answer": 0,
+          "explanation": "Smaller samples vary more, so the hospital with about 15 births a day will stray from 50% boys more often." },
+        { "id": "c2q2", "kind": "trueFalse", "sourceRefs": ["s1"],
+          "prompt": "Ignoring how common each category is (the base rate) is a typical result of judging by resemblance.",
+          "answer": true,
+          "explanation": "Resemblance to a stereotype isn't affected by how many farmers or engineers there are, so judging by resemblance leaves base rates out." } ]
+    },
+    {
+      "id": "framing-setup", "type": "textVisual", "sourceRefs": ["s2"],
+      "heading": "Framing: same choice, different words",
+      "body": "In a 1981 study, people imagined a disease outbreak expected to kill 600 people, and two programs to fight it. One program has a certain outcome. The other is a gamble with the *same* expected result. Only the wording changed between groups.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "a", "label": "Sure thing", "symbol": "equal.circle", "style": "filled", "step": 2 },
+          { "id": "d", "label": "Outbreak", "detail": "600 at risk", "symbol": "cross.case", "style": "outline", "step": 1 },
+          { "id": "b", "label": "Gamble", "symbol": "dice", "style": "filled", "step": 2 } ],
+        "edges": [ { "from": "d", "to": "a", "step": 2 }, { "from": "d", "to": "b", "step": 2 } ],
+        "accessibilityLabel": "An outbreak threatening 600 people, with a choice between a sure-thing program and a gamble." }
+    },
+    {
+      "id": "framing-results", "type": "comparison", "sourceRefs": ["s2"],
+      "columns": [ { "title": "Lives saved", "symbol": "heart" }, { "title": "Deaths", "symbol": "xmark.octagon" } ],
+      "rows": [
+        { "label": "Sure thing", "values": [ "\"200 people will be saved\": **72%** chose it", "\"400 people will die\": **22%** chose it" ] },
+        { "label": "Gamble", "values": [ "1/3 chance all 600 saved: **28%**", "1/3 chance nobody dies, 2/3 chance 600 die: **78%**" ] },
+        { "label": "People asked", "values": [ "152", "155" ] } ],
+      "takeaway": "The outcomes are identical. Described as gains, most people played safe; described as losses, most gambled."
+    },
+    {
+      "id": "value-curve", "type": "chart", "sourceRefs": ["s2"], "chartKind": "line", "dataKind": "illustrative",
+      "heading": "Losses loom larger",
+      "xLabel": "Outcome (loss ← 0 → gain)", "yLabel": "How it feels",
+      "series": [ { "name": "Felt value", "points": [
+        { "x": -100, "y": -150 }, { "x": -75, "y": -125 }, { "x": -50, "y": -94 }, { "x": -25, "y": -54 }, { "x": 0, "y": 0 },
+        { "x": 25, "y": 27 }, { "x": 50, "y": 47 }, { "x": 75, "y": 62 }, { "x": 100, "y": 75 } ] } ],
+      "dataNote": "Shape only, numbers made up: steeper for losses, flattening for big gains, as the 1981 paper describes.",
+      "caption": "Prospect theory says we judge outcomes as gains or losses from where we stand. Losing a sum usually hurts more than winning it pleases. And going from $10 to $20 feels bigger than going from $110 to $120."
+    },
+    {
+      "id": "model-not-law", "type": "keyIdea", "sourceRefs": ["s2"], "symbol": "ruler",
+      "statement": "A model, not a law of nature.",
+      "body": "Tversky and Kahneman called prospect theory an \"approximate, incomplete, and simplified\" description, and noted that some people's choices don't fit it. Biases describe common tendencies, not certainties about any one person."
+    },
+    {
+      "id": "real-example", "type": "steps", "style": "numbered",
+      "heading": "Real example: one afternoon on a used-car lot",
+      "steps": [
+        { "title": "Anchoring", "body": "The sticker price is the first number you see. Every counteroffer gets measured against it, even if it was set high on purpose.", "symbol": "tag" },
+        { "title": "Availability", "body": "Your friend's horror story about this brand comes to mind instantly, and one vivid story starts to feel like a trend.", "symbol": "text.bubble" },
+        { "title": "Representativeness", "body": "The car is spotless, so it *seems* reliable. Clean paint resembles good maintenance without proving it.", "symbol": "sparkles" },
+        { "title": "Framing", "body": "\"Nine in ten owners are happy\" and \"one in ten has regrets\" are the same fact. Notice which one the salesperson picks.", "symbol": "rectangle.2.swap" } ]
+    },
+    {
+      "id": "habits", "type": "steps", "style": "flow",
+      "heading": "Habits that follow from the research",
+      "steps": [
+        { "title": "Ask for the base rate", "body": "How common is this in general, before the details?", "symbol": "chart.pie" },
+        { "title": "Distrust the first number", "body": "Form your own estimate before hearing anyone else's.", "symbol": "number" },
+        { "title": "Flip the frame", "body": "Restate a choice as gains, then as losses. Does your answer change?", "symbol": "arrow.left.arrow.right" },
+        { "title": "Check the sample size", "body": "A striking result from a small group is weak evidence.", "symbol": "person.3" } ]
+    },
+    {
+      "id": "why", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Why it matters",
+      "body": "Tversky and Kahneman opened their paper with the judgments these shortcuts touch: the outcome of an election, the guilt of a defendant, the future value of the dollar. Voting, juries, money, health: whenever you estimate under uncertainty, these shortcuts are working for you, and sometimes against you.",
+      "visual": { "kind": "symbol", "name": "scale.3d", "caption": "Judgment under uncertainty",
+                  "accessibilityLabel": "A balance scale, standing for judgment." }
+    },
+    {
+      "id": "recap", "type": "recap",
+      "bullets": [
+        "Heuristics are useful shortcuts that sometimes cause systematic, predictable errors.",
+        "Anchoring, availability and representativeness bend estimates; base rates and sample size get ignored.",
+        "Framing the same choice as gains or losses flips what people choose, because losses loom larger." ]
+    }
+  ],
+  "finalQuiz": [
+    { "id": "f1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "A wheel of fortune lands on 65 before you estimate a percentage. What does the research predict?",
+      "choices": [ "Your estimate will be pulled upward toward 65", "No effect, because you know the number is random", "Your estimate will be pulled downward", "Only an effect if you're unpaid" ],
+      "answer": 0,
+      "explanation": "Groups that got 65 gave a median estimate of 45%, versus 25% for those who got 10, even though the number was random." },
+    { "id": "f2", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "Why do most people think more words start with r than have r in third place?",
+      "choices": [ "Words starting with r are easier to recall", "It's true: more words start with r", "People confuse r with k", "Dictionaries are sorted by first letter" ],
+      "answer": 0,
+      "explanation": "That's the availability heuristic: ease of recall stands in for frequency. In fact r appears more often in the third position." },
+    { "id": "f3", "kind": "trueFalse", "sourceRefs": ["s1"],
+      "prompt": "Judging that Steve is a librarian because he fits the stereotype correctly accounts for how many farmers there are.",
+      "answer": false,
+      "explanation": "Resemblance ignores base rates. There are many more farmers than librarians, which should make \"farmer\" more likely than the stereotype suggests." },
+    { "id": "f4", "kind": "multipleChoice", "sourceRefs": ["s2"],
+      "prompt": "In the disease problem, what changed between the group that played safe and the group that gambled?",
+      "choices": [ "Only the wording: lives saved vs. deaths", "The number of people at risk", "The odds of the gamble", "The groups were from different countries" ],
+      "answer": 0,
+      "explanation": "The outcomes were identical. Framed as lives saved, 72% chose the sure option; framed as deaths, 78% chose the gamble." },
+    { "id": "f5", "kind": "trueFalse", "sourceRefs": ["s2"],
+      "prompt": "According to prospect theory, losing $100 usually feels about as bad as winning $100 feels good.",
+      "answer": false,
+      "explanation": "The value function is steeper for losses: the displeasure of losing a sum is generally greater than the pleasure of winning it." }
+  ],
+  "sources": [
+    { "id": "s1", "kind": "journal", "title": "Judgment under Uncertainty: Heuristics and Biases",
+      "authors": "Tversky, A., & Kahneman, D.", "publisher": "Science 185(4157)", "year": "1974", "locator": "pp. 1124–1131",
+      "url": "https://doi.org/10.1126/science.185.4157.1124", "accessed": "2026-11-24" },
+    { "id": "s2", "kind": "journal", "title": "The Framing of Decisions and the Psychology of Choice",
+      "authors": "Tversky, A., & Kahneman, D.", "publisher": "Science 211(4481)", "year": "1981", "locator": "pp. 453–458",
+      "url": "https://doi.org/10.1126/science.7455683", "accessed": "2026-11-24" }
+  ],
+  "factCheck": { "checkedOn": "2026-11-24",
+    "notes": "Every number and example was checked against page images of both original papers: anchoring (pp. 1128), availability (1127), representativeness, base rates and the hospital problem (1124–1125); framing problems and value function (453–454). The value curve is labeled illustrative." }
+}

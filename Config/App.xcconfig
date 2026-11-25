@@ -1,0 +1,11 @@
+// The one place to rename the app.
+APP_DISPLAY_NAME = Strata
+
+// Must be unique to you for free "Personal Team" signing. Change it if Xcode says it's taken.
+PRODUCT_BUNDLE_IDENTIFIER = app.strata.personal
+
+IPHONEOS_DEPLOYMENT_TARGET = 17.0
+TARGETED_DEVICE_FAMILY = 1
+MARKETING_VERSION = 0.1
+CURRENT_PROJECT_VERSION = 1
+SWIFT_VERSION = 5.0

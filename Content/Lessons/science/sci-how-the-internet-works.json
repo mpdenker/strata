@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "sci-how-the-internet-works",
+  "topic": "science",
+  "order": 4,
+  "title": "How the Internet Works",
+  "goal": "Follow a web request from your phone to a server and back: packets, addresses, DNS, TCP and HTTPS.",
+  "minutes": 12,
+  "contentVersion": 1,
+  "sections": [
+    {
+      "id": "hook", "type": "hook",
+      "headline": "What happens after you tap a link?",
+      "body": "In well under a second, your phone looks up a server it may never have contacted, agrees on secret keys with it, and receives the page in many small pieces that it puts back in order. This lesson follows that trip.",
+      "visual": { "kind": "symbol", "name": "network", "caption": "One tap, many networks",
+                  "accessibilityLabel": "A network symbol: connected nodes." }
+    },
+    {
+      "id": "network-of-networks", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Not one network, but many",
+      "body": "The internet was designed around the idea of many independent networks, each built its own way, that agree to carry each other's traffic. Its designers called this **open architecture networking**. Your home Wi-Fi, your phone carrier and a cloud data center are separate networks joined by shared rules.",
+      "visual": { "kind": "diagram", "layout": "cycle",
+        "nodes": [
+          { "id": "home", "label": "Home Wi-Fi", "symbol": "wifi", "style": "filled", "step": 1 },
+          { "id": "cell", "label": "Phone carrier", "symbol": "antenna.radiowaves.left.and.right", "style": "filled", "step": 2 },
+          { "id": "uni", "label": "University", "symbol": "building.columns", "style": "filled", "step": 3 },
+          { "id": "cloud", "label": "Data center", "symbol": "server.rack", "style": "filled", "step": 4 } ],
+        "edges": [
+          { "from": "home", "to": "cell", "style": "line", "step": 5 }, { "from": "cell", "to": "uni", "style": "line", "step": 5 },
+          { "from": "uni", "to": "cloud", "style": "line", "step": 5 }, { "from": "cloud", "to": "home", "style": "line", "step": 5 } ],
+        "accessibilityLabel": "Four separate networks, home Wi-Fi, a phone carrier, a university and a data center, linked to each other in a ring." }
+    },
+    {
+      "id": "history", "type": "timeline", "sourceRefs": ["s1", "s2"], "scale": "even",
+      "heading": "From four computers to everywhere",
+      "events": [
+        { "date": "Sep 1969", "sortKey": 1969.67, "title": "First ARPANET node", "detail": "The first packet switch is installed at UCLA and a host computer connected." },
+        { "date": "Oct 1969", "sortKey": 1969.75, "title": "First host-to-host message", "detail": "Sent from Leonard Kleinrock's lab at UCLA to SRI." },
+        { "date": "1 Jan 1983", "sortKey": 1983.0, "title": "Switch to TCP/IP", "detail": "A \"flag day\": every ARPANET host had to convert at once." },
+        { "date": "1989", "sortKey": 1989.2, "title": "The Web is proposed", "detail": "Tim Berners-Lee writes his proposal at CERN." },
+        { "date": "30 Apr 1993", "sortKey": 1993.33, "title": "The Web goes public domain", "detail": "CERN gives up all intellectual property rights to the Web software." } ]
+    },
+    {
+      "id": "packets", "type": "textVisual", "sourceRefs": ["s1", "s3"],
+      "heading": "Packets, not phone lines",
+      "body": "Early internet pioneers bet on communicating with **packets** rather than dedicated circuits. A message is cut into separate blocks. Each one carries enough addressing information for the network to forward it on its own, router by router. Pieces can take different paths and get reassembled at the end.",
+      "visual": { "kind": "shapes", "aspectRatio": 1.8, "items": [
+        { "shape": "symbol", "x": 0.08, "y": 0.5, "name": "iphone", "size": 0.09, "fill": "ink", "step": 1 },
+        { "shape": "symbol", "x": 0.92, "y": 0.5, "name": "server.rack", "size": 0.09, "fill": "ink", "step": 1 },
+        { "shape": "circle", "x": 0.35, "y": 0.25, "r": 0.04, "fill": "paper", "stroke": "ink", "step": 1 },
+        { "shape": "circle", "x": 0.35, "y": 0.75, "r": 0.04, "fill": "paper", "stroke": "ink", "step": 1 },
+        { "shape": "circle", "x": 0.65, "y": 0.25, "r": 0.04, "fill": "paper", "stroke": "ink", "step": 1 },
+        { "shape": "circle", "x": 0.65, "y": 0.75, "r": 0.04, "fill": "paper", "stroke": "ink", "step": 1 },
+        { "shape": "line", "points": [[0.14, 0.45], [0.35, 0.25], [0.65, 0.25], [0.86, 0.45]], "arrow": true, "stroke": "topic", "step": 2 },
+        { "shape": "line", "points": [[0.14, 0.55], [0.35, 0.75], [0.65, 0.75], [0.86, 0.55]], "arrow": true, "stroke": "topic", "dashed": true, "step": 3 },
+        { "shape": "rect", "x": 0.45, "y": 0.13, "w": 0.1, "h": 0.1, "fill": "topic", "stroke": "ink", "corner": 0.01, "step": 2 },
+        { "shape": "text", "x": 0.5, "y": 0.18, "text": "1", "textSize": "caption", "fill": "paper", "step": 2 },
+        { "shape": "rect", "x": 0.45, "y": 0.77, "w": 0.1, "h": 0.1, "fill": "topic", "stroke": "ink", "corner": 0.01, "step": 3 },
+        { "shape": "text", "x": 0.5, "y": 0.82, "text": "2", "textSize": "caption", "fill": "paper", "step": 3 },
+        { "shape": "text", "x": 0.5, "y": 0.5, "text": "routers", "textSize": "caption", "fill": "muted", "step": 1 } ],
+        "accessibilityLabel": "A phone sends two packets to a server. They travel through different routers on different paths and meet at the server." }
+    },
+    {
+      "id": "addresses", "type": "comparison", "sourceRefs": ["s3"],
+      "computed": "2^32 and 2^128 possible addresses",
+      "heading": "Every device needs an address",
+      "columns": [ { "title": "IPv4" }, { "title": "IPv6" } ],
+      "rows": [
+        { "label": "Address size", "values": [ "32 bits", "128 bits" ] },
+        { "label": "Possible addresses", "values": [ "about 4.3 billion", "about 3.4 × 10³⁸" ] },
+        { "label": "Looks like", "values": [ "192.0.2.1", "2001:db8::1" ] } ],
+      "takeaway": "A 32-bit address space turned out to be small for a planet of connected devices; IPv6 makes it vastly bigger."
+    },
+    {
+      "id": "layers", "type": "textVisual", "sourceRefs": ["s3"],
+      "heading": "A stack of jobs",
+      "body": "Networking software is built in layers. Each layer does one job and relies on the one below: the link moves bits across one hop, IP gets packets across networks, TCP or UDP deliver them to the right program, and applications like the Web speak HTTP on top.",
+      "visual": { "kind": "layers", "direction": "up", "layers": [
+        { "label": "Link", "detail": "Wi-Fi, Ethernet, cellular", "symbol": "cable.connector" },
+        { "label": "Internet", "detail": "IP: addresses and routing", "symbol": "point.3.connected.trianglepath.dotted" },
+        { "label": "Transport", "detail": "TCP or UDP", "symbol": "shippingbox" },
+        { "label": "Application", "detail": "HTTP, DNS, email", "symbol": "app.badge" } ],
+        "accessibilityLabel": "Four stacked layers, from the bottom: link, internet (IP), transport (TCP or UDP), and application (HTTP, DNS, email)." }
+    },
+    {
+      "id": "check-basics", "type": "check",
+      "questions": [
+        { "id": "c1q1", "kind": "multipleChoice", "sourceRefs": ["s3"],
+          "prompt": "How long is an IPv4 address?",
+          "choices": [ "32 bits", "64 bits", "128 bits", "8 bits" ],
+          "answer": 0,
+          "explanation": "IPv4 addresses are 32 bits long. IPv6 expands that to 128 bits." },
+        { "id": "c1q2", "kind": "trueFalse", "sourceRefs": ["s3"],
+          "prompt": "Each IP packet carries enough information for the network to forward it on its own.",
+          "answer": true,
+          "explanation": "That's the datagram model: every packet is addressed, so routers can forward each one independently." } ]
+    },
+    {
+      "id": "dns", "type": "steps", "style": "flow", "sourceRefs": ["s1", "s3"],
+      "heading": "DNS: turning a name into an address",
+      "steps": [
+        { "title": "You ask for www.acm.org", "body": "Your device asks a nearby name server, which does the lookup for you.", "symbol": "iphone" },
+        { "title": "Root server", "body": "It can't answer fully, so it returns the best match it has: who handles .org.", "symbol": "globe" },
+        { "title": ".org server", "body": "Points onward to the name server responsible for acm.org.", "symbol": "arrow.turn.down.right" },
+        { "title": "Authoritative server", "body": "Finally, a server that can fully resolve the name returns its IP address.", "symbol": "checkmark.seal" } ]
+    },
+    {
+      "id": "tcp-udp", "type": "comparison", "sourceRefs": ["s3"],
+      "heading": "Two ways to deliver",
+      "columns": [ { "title": "TCP", "symbol": "checkmark.shield" }, { "title": "UDP", "symbol": "paperplane" } ],
+      "rows": [
+        { "label": "Promise", "values": [ "Reliable, in-order delivery of a stream of bytes", "Adds nothing to the network's best effort" ] },
+        { "label": "Setup", "values": [ "A three-way handshake first", "None: just send" ] },
+        { "label": "Flow control", "values": [ "Yes", "No" ] } ],
+      "takeaway": "TCP trades a little speed for guarantees; UDP is simple and leaves the rest to the application."
+    },
+    {
+      "id": "handshake", "type": "steps", "style": "numbered", "sourceRefs": ["s3"],
+      "heading": "The TCP handshake",
+      "steps": [
+        { "title": "SYN", "body": "The client sends its starting sequence number.", "symbol": "arrow.right" },
+        { "title": "SYN + ACK", "body": "The server acknowledges it and sends its own starting number.", "symbol": "arrow.left" },
+        { "title": "ACK", "body": "The client acknowledges the server's number. The connection is open.", "symbol": "arrow.right" } ]
+    },
+    {
+      "id": "bgp", "type": "textVisual", "sourceRefs": ["s3"],
+      "heading": "How networks find each other",
+      "body": "Large networks are **autonomous systems**. Using BGP, they tell their neighbors which destinations they can reach, and by which path of networks. BGP itself runs over TCP. No central map exists: the routes emerge from these announcements.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "a", "label": "Network A", "symbol": "building.2", "style": "outline", "step": 1 },
+          { "id": "b", "label": "Network B", "symbol": "building.2", "style": "outline", "step": 1 },
+          { "id": "c", "label": "Network C", "detail": "hosts the site", "symbol": "server.rack", "style": "filled", "step": 1 } ],
+        "edges": [
+          { "from": "c", "to": "b", "label": "reach me here", "style": "arrow", "step": 2 },
+          { "from": "b", "to": "a", "label": "via B, C", "style": "arrow", "step": 3 } ],
+        "accessibilityLabel": "Network C announces it can be reached; Network B passes that on to Network A as a path through B and C." }
+    },
+    {
+      "id": "tls", "type": "textVisual", "sourceRefs": ["s3"],
+      "heading": "HTTPS: the padlock",
+      "body": "HTTPS is ordinary web traffic sent over **TLS**, which provides confidentiality (no one else can read it), integrity (no one can change it unnoticed) and authentication (it's really that site). Usually only the website proves who it is, with a certificate. You don't have to.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "you", "label": "Your browser", "symbol": "safari", "style": "outline", "step": 1 },
+          { "id": "site", "label": "Website", "detail": "shows certificate", "symbol": "checkmark.seal", "style": "filled", "step": 2 } ],
+        "edges": [ { "from": "you", "to": "site", "label": "encrypted", "style": "line", "step": 3 } ],
+        "accessibilityLabel": "Your browser connects to a website that shows a certificate; the connection between them is encrypted." }
+    },
+    {
+      "id": "cables", "type": "textVisual", "sourceRefs": ["s4"],
+      "heading": "The internet is under the sea",
+      "body": "Between continents, data mostly travels through cables on the seafloor. TeleGeography tracks more than 600 active and planned submarine cables, with over 1.5 million kilometers in service as of early 2026. Satellites carry very little: just 0.37% of all US international capacity, according to the FCC.",
+      "visual": { "kind": "shapes", "aspectRatio": 1.8, "items": [
+        { "shape": "polygon", "points": [[0.0, 0.1], [0.28, 0.05], [0.33, 0.45], [0.22, 0.95], [0.0, 0.95]], "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "polygon", "points": [[1.0, 0.05], [0.7, 0.1], [0.66, 0.5], [0.78, 0.92], [1.0, 0.95]], "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "line", "points": [[0.31, 0.3], [0.5, 0.36], [0.68, 0.3]], "stroke": "ink", "step": 2 },
+        { "shape": "line", "points": [[0.3, 0.55], [0.5, 0.6], [0.67, 0.55]], "stroke": "ink", "step": 2 },
+        { "shape": "line", "points": [[0.25, 0.8], [0.5, 0.86], [0.74, 0.8]], "stroke": "ink", "step": 3 },
+        { "shape": "text", "x": 0.5, "y": 0.15, "text": "ocean", "textSize": "caption", "fill": "muted", "step": 1 } ],
+        "accessibilityLabel": "Two simplified continents with three cables running across the ocean between them. Not to scale." }
+    },
+    {
+      "id": "check-trip", "type": "check",
+      "questions": [
+        { "id": "c2q1", "kind": "multipleChoice", "sourceRefs": ["s3"],
+          "prompt": "What does DNS do?",
+          "choices": [ "Turns a name like www.acm.org into an IP address", "Encrypts web traffic", "Splits data into packets", "Decides which cable to use" ],
+          "answer": 0,
+          "explanation": "DNS resolves hierarchical names into internet addresses, asking servers from the root down to the domain's own server." },
+        { "id": "c2q2", "kind": "trueFalse", "sourceRefs": ["s3"],
+          "prompt": "With HTTPS, both you and the website usually have to prove your identity with certificates.",
+          "answer": false,
+          "explanation": "The most common case authenticates only the website, not the user." } ]
+    },
+    {
+      "id": "end-to-end", "type": "steps", "style": "numbered", "sourceRefs": ["s3"],
+      "heading": "Real example: loading a page, end to end",
+      "steps": [
+        { "title": "Look up the name", "body": "DNS turns the site's name into an IP address.", "symbol": "magnifyingglass" },
+        { "title": "Open a connection", "body": "The TCP handshake: SYN, SYN+ACK, ACK.", "symbol": "hand.wave" },
+        { "title": "Secure it", "body": "TLS checks the site's certificate and sets up encryption.", "symbol": "lock" },
+        { "title": "Ask for the page", "body": "Your browser sends an HTTP request.", "symbol": "arrow.up.doc" },
+        { "title": "Receive the pieces", "body": "The reply arrives in packets that TCP puts back in order.", "symbol": "square.stack.3d.down.right" },
+        { "title": "Draw it", "body": "The browser renders the page, often repeating these steps for images and scripts.", "symbol": "photo" } ]
+    },
+    {
+      "id": "agreement", "type": "keyIdea", "sourceRefs": ["s1"], "symbol": "hands.sparkles",
+      "statement": "It works because independent networks agree on open rules.",
+      "body": "No single company built the internet. It runs on shared, published protocols that let networks of \"rather arbitrary design\" work together."
+    },
+    {
+      "id": "why", "type": "textVisual",
+      "heading": "Why it matters",
+      "body": "Knowing the layers helps you reason about everyday problems. A name that won't load may be a DNS problem. The padlock means TLS is protecting what you send. A choppy video call is packets arriving late or not at all. And every message you send crosses networks owned by others.",
+      "visual": { "kind": "symbol", "name": "wrench.and.screwdriver", "caption": "Debugging, demystified",
+                  "accessibilityLabel": "A wrench and screwdriver." }
+    },
+    {
+      "id": "recap", "type": "recap",
+      "bullets": [
+        "The internet is many independent networks that agree on open protocols, sending data as separately addressed packets.",
+        "DNS finds the address; IP routes the packets; TCP delivers them reliably and in order after a handshake.",
+        "HTTPS adds TLS for confidentiality, integrity and authentication, and most long-distance traffic runs through undersea cables." ]
+    }
+  ],
+  "finalQuiz": [
+    { "id": "f1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "What happened on 1 January 1983?",
+      "choices": [ "The ARPANET switched from NCP to TCP/IP all at once", "The first ARPANET message was sent", "The World Wide Web was proposed", "CERN released the Web into the public domain" ],
+      "answer": 0,
+      "explanation": "It was a \"flag day\" transition: every host had to convert to TCP/IP simultaneously." },
+    { "id": "f2", "kind": "multipleChoice", "sourceRefs": ["s3"],
+      "prompt": "Which is the correct order of the TCP handshake?",
+      "choices": [ "SYN, SYN+ACK, ACK", "ACK, SYN, SYN+ACK", "SYN, ACK, FIN", "HELLO, KEY, DONE" ],
+      "answer": 0,
+      "explanation": "The client sends SYN, the server answers SYN+ACK, and the client confirms with ACK." },
+    { "id": "f3", "kind": "trueFalse", "sourceRefs": ["s3"],
+      "prompt": "UDP guarantees that data arrives in order.",
+      "answer": false,
+      "explanation": "UDP adds no reliability or ordering on top of the network's best-effort service. TCP is the one that guarantees reliable, in-order delivery." },
+    { "id": "f4", "kind": "multipleChoice", "sourceRefs": ["s3"],
+      "prompt": "What does BGP let autonomous systems do?",
+      "choices": [ "Tell each other which destinations they can reach, and by what path", "Encrypt traffic between them", "Translate names into addresses", "Split files into packets" ],
+      "answer": 0,
+      "explanation": "BGP shares reachability information, advertising complete paths of autonomous systems." },
+    { "id": "f5", "kind": "trueFalse", "sourceRefs": ["s4"],
+      "prompt": "Satellites carry most international internet traffic.",
+      "answer": false,
+      "explanation": "Satellites carry a very small share; the FCC puts them at 0.37% of US international capacity. Submarine cables carry the bulk." }
+  ],
+  "sources": [
+    { "id": "s1", "kind": "primary", "title": "A Brief History of the Internet",
+      "authors": "Leiner, B. M., Cerf, V. G., Clark, D. D., et al.", "publisher": "Internet Society", "year": "1997",
+      "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/", "accessed": "2026-11-24" },
+    { "id": "s2", "kind": "organization", "title": "30 years of a free and open Web",
+      "publisher": "CERN", "year": "2023",
+      "url": "https://home.cern/news/news/computing/30-years-free-and-open-web", "accessed": "2026-11-24" },
+    { "id": "s3", "kind": "textbook", "title": "Computer Networks: A Systems Approach (6th ed., online)",
+      "authors": "Peterson, L., & Davie, B.", "publisher": "Systems Approach (CC BY 4.0)", "year": "2024",
+      "locator": "§3.3, §4.1.2, §4.2, §5.1–5.2, §8.5.3, §9.3.1",
+      "url": "https://book.systemsapproach.org/", "accessed": "2026-11-24" },
+    { "id": "s4", "kind": "organization", "title": "Submarine Cable FAQs",
+      "publisher": "TeleGeography", "year": "2026",
+      "url": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions", "accessed": "2026-11-24" }
+  ],
+  "factCheck": { "checkedOn": "2026-11-24",
+    "notes": "Dates checked against the Internet Society history (1969, 1983) and CERN (1989 proposal, 30 April 1993). Protocol facts checked against Peterson & Davie. Cable and satellite figures from TeleGeography's FAQ. The layered-stack summary follows the textbook's structure; re-check its wording in the accuracy pass." }
+}

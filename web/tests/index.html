@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Strata tests</title>
+<style>pre { font: 14px ui-monospace, Menlo, monospace; white-space: pre-wrap; padding: 16px; }</style>
+<pre id="out"></pre>
+<script type="module">
+  import { run } from './harness.js';
+  import './logic.test.js';
+  import './content.test.js';
+  const out = document.getElementById('out');
+  await run(line => { out.textContent += line + '\n'; });
+</script>

@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "id": "his-rise-and-fall-of-rome",
+  "topic": "history",
+  "order": 2,
+  "title": "Rise and Fall of Rome",
+  "goal": "Trace Rome from city to republic to empire, see what held it together, and weigh why the West ended.",
+  "minutes": 14,
+  "contentVersion": 1,
+  "sections": [
+    {
+      "id": "hook", "type": "hook", "sourceRefs": ["s2"],
+      "headline": "An empire that outlived its own capital.",
+      "body": "Rome grew from a small city into the power that ruled the Mediterranean. Its western half dissolved in the fifth century CE. Its eastern half, governed from a newer capital, kept going into the fifteenth century.",
+      "visual": { "kind": "symbol", "name": "building.columns.fill", "caption": "Republic, empire, and after",
+                  "accessibilityLabel": "Classical columns." }
+    },
+    {
+      "id": "timeline", "type": "timeline", "sourceRefs": ["s1", "s2"], "scale": "linear",
+      "heading": "A thousand years in one scroll",
+      "events": [
+        { "date": "753 BCE", "sortKey": -753, "title": "Founding, by tradition", "detail": "Roman tradition credits the twins Romulus and Remus.", "approx": true },
+        { "date": "509 BCE", "sortKey": -509, "title": "The Republic", "detail": "Romans oust the Etruscan king and declare a republic." },
+        { "date": "450 BCE", "sortKey": -450, "title": "The Twelve Tables", "detail": "Rome's laws are written down and posted for all citizens." },
+        { "date": "264–241 BCE", "sortKey": -264, "title": "First Punic War", "detail": "Rome and Carthage fight over Sicily." },
+        { "date": "146 BCE", "sortKey": -146, "title": "Carthage destroyed", "detail": "Corinth is sacked the same year." },
+        { "date": "44 BCE", "sortKey": -44, "title": "Caesar assassinated", "detail": "A conspiracy led by Brutus and Cassius." },
+        { "date": "27 BCE", "sortKey": -27, "title": "Augustus", "detail": "Octavian \"restores\" the Republic, and in fact begins the Empire." },
+        { "date": "212 CE", "sortKey": 212, "title": "Citizenship for all", "detail": "The Edict of Caracalla extends citizenship across the empire." },
+        { "date": "235–284", "sortKey": 235, "title": "Crisis of the Third Century", "detail": "Upward of 26 claimants to the throne in 49 years." },
+        { "date": "313", "sortKey": 313, "title": "Edict of Milan", "detail": "Constantine announces religious toleration." },
+        { "date": "330", "sortKey": 330, "title": "Constantinople", "detail": "Byzantium is refounded and dedicated as a new city." },
+        { "date": "410", "sortKey": 410, "title": "Rome attacked", "detail": "Alaric's forces plunder the city over three days." },
+        { "date": "476", "sortKey": 476, "title": "The traditional end in the West", "detail": "Odoacer deposes Romulus Augustulus." } ]
+    },
+    {
+      "id": "republic", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "How the Republic was run",
+      "body": "Instead of a king, elected officials governed. Two **consuls** were the highest officials. The **Senate** was by far the most powerful institution and decided how public money was spent. Three **assemblies** elected officials every year, and the Plebeian Assembly chose ten **tribunes** each year who could block decisions by saying \"I forbid.\"",
+      "visual": { "kind": "diagram", "layout": "grid",
+        "nodes": [
+          { "id": "senate", "label": "Senate", "detail": "controls public money", "symbol": "person.3.sequence.fill", "style": "filled", "step": 1 },
+          { "id": "consuls", "label": "Two consuls", "detail": "highest officials", "symbol": "person.2", "style": "outline", "step": 2 },
+          { "id": "assemblies", "label": "Three assemblies", "detail": "elect officials yearly", "symbol": "person.3", "style": "outline", "step": 3 },
+          { "id": "tribunes", "label": "Ten tribunes", "detail": "veto: \"I forbid\"", "symbol": "hand.raised", "style": "outline", "step": 4 } ],
+        "edges": [ { "from": "assemblies", "to": "tribunes", "label": "elect", "style": "arrow", "step": 4 } ],
+        "accessibilityLabel": "Four parts of the Republic: the Senate, two consuls, three assemblies, and ten tribunes elected by an assembly with the power to veto." }
+    },
+    {
+      "id": "expansion", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "From city to sea",
+      "body": "Rome fought three wars against Carthage, starting with a struggle over Sicily, and destroyed the city in 146 BCE. By the second century BCE, Rome had emerged as the most powerful state in all the lands bordering the Mediterranean Sea.",
+      "visual": { "kind": "shapes", "aspectRatio": 2.0, "items": [
+        { "shape": "polygon", "points": [[0.05, 0.55], [0.2, 0.45], [0.4, 0.5], [0.5, 0.42], [0.62, 0.5], [0.78, 0.45], [0.95, 0.52], [0.9, 0.75], [0.6, 0.8], [0.3, 0.78], [0.08, 0.72]], "fill": "paper", "stroke": "muted", "step": 1 },
+        { "shape": "text", "x": 0.5, "y": 0.64, "text": "Mediterranean Sea", "textSize": "caption", "fill": "muted", "step": 1 },
+        { "shape": "circle", "x": 0.42, "y": 0.38, "r": 0.025, "fill": "topic", "stroke": "ink", "step": 2 },
+        { "shape": "text", "x": 0.42, "y": 0.25, "text": "**Rome**", "textSize": "body", "step": 2 },
+        { "shape": "circle", "x": 0.34, "y": 0.84, "r": 0.02, "fill": "muted", "stroke": "ink", "step": 3 },
+        { "shape": "text", "x": 0.34, "y": 0.95, "text": "Carthage", "textSize": "caption", "step": 3 },
+        { "shape": "line", "points": [[0.42, 0.42], [0.36, 0.8]], "arrow": true, "dashed": true, "stroke": "topic", "step": 4 },
+        { "shape": "circle", "x": 0.8, "y": 0.36, "r": 0.02, "fill": "muted", "stroke": "ink", "step": 5 },
+        { "shape": "text", "x": 0.8, "y": 0.24, "text": "Constantinople (later)", "textSize": "caption", "step": 5 } ],
+        "accessibilityLabel": "A simplified, not-to-scale Mediterranean with Rome in the north, Carthage across the sea to the south, and the later capital Constantinople in the east." }
+    },
+    {
+      "id": "republic-vs-empire", "type": "comparison", "sourceRefs": ["s1"],
+      "heading": "Republic vs. Empire",
+      "columns": [ { "title": "Republic", "symbol": "person.3" }, { "title": "Empire", "symbol": "crown" } ],
+      "rows": [
+        { "label": "Who rules", "values": [ "Elected magistrates and the Senate", "An emperor with almost godlike authority" ] },
+        { "label": "How it began", "values": [ "Ousting a king, 509 BCE", "Octavian claiming to restore the Republic, 27 BCE" ] } ],
+      "takeaway": "Augustus kept the Republic's forms while ending its substance."
+    },
+    {
+      "id": "check-republic", "type": "check",
+      "questions": [
+        { "id": "c1q1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+          "prompt": "Which was the most powerful institution of the Roman Republic, deciding how public money was spent?",
+          "choices": [ "The Senate", "The tribunes", "The Plebeian Assembly", "The emperor" ],
+          "answer": 0,
+          "explanation": "The Senate was by far the most powerful institution in the Republic. Tribunes could veto, but the Senate controlled public money." },
+        { "id": "c1q2", "kind": "trueFalse", "sourceRefs": ["s1"],
+          "prompt": "In 27 BCE Octavian openly abolished the Republic and declared himself emperor.",
+          "answer": false,
+          "explanation": "He officially stepped down as dictator and claimed to \"restore\" the Republic, while in fact founding the Empire." } ]
+    },
+    {
+      "id": "glue", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "What held it together",
+      "body": "Well-built **roads** linked Rome to its colonies so armies could arrive quickly. **Written law**, starting with the Twelve Tables, made the rules visible to every citizen. **Citizenship** spread outward until the Edict of Caracalla extended it across the empire in 212.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "roads", "label": "Roads", "symbol": "road.lanes", "style": "filled", "step": 1 },
+          { "id": "law", "label": "Written law", "symbol": "scroll", "style": "filled", "step": 2 },
+          { "id": "cit", "label": "Citizenship", "symbol": "person.badge.shield.checkmark", "style": "filled", "step": 3 } ],
+        "accessibilityLabel": "Three things that held Rome together: roads, written law and citizenship." }
+    },
+    {
+      "id": "crisis", "type": "textVisual", "sourceRefs": ["s1", "s2"],
+      "heading": "The Crisis of the Third Century",
+      "body": "From 235 to 284, a span of only 49 years, upward of 26 different claimants fought over the throne. The empire also slid into financial crisis. Each crown below is one claimant.",
+      "visual": { "kind": "iconArray", "total": 26, "columns": 9, "symbol": "crown.fill",
+        "groups": [ { "count": 26, "color": "topic", "label": "claimants to the throne in 49 years" } ],
+        "accessibilityLabel": "Twenty-six crowns, one for each claimant to the throne between 235 and 284." }
+    },
+    {
+      "id": "reforms", "type": "steps", "style": "numbered", "sourceRefs": ["s1", "s2"],
+      "heading": "Repairs and a new center",
+      "steps": [
+        { "title": "Diocletian fights inflation", "body": "In 301 he issued the Edict on Maximum Prices, part of a series of measures to fix the empire's problems.", "symbol": "dollarsign.circle" },
+        { "title": "Constantine ends persecution", "body": "His Edict of Milan in 313 set out a policy of religious toleration.", "symbol": "hands.and.sparkles" },
+        { "title": "A new capital", "body": "He refounded Byzantium as Constantinople, dedicated in 330 CE; it eventually became the imperial capital.", "symbol": "building.2" } ]
+    },
+    {
+      "id": "two-halves", "type": "textVisual", "sourceRefs": ["s2"],
+      "heading": "One empire, two halves",
+      "body": "Theodosius I was the last emperor to rule a united empire. After him, Arcadius ruled the eastern half from Constantinople, while Honorius controlled the western half from Ravenna in northern Italy.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "w", "label": "West", "detail": "Honorius, at Ravenna", "symbol": "sunset", "style": "outline", "step": 2 },
+          { "id": "t", "label": "Theodosius I", "detail": "last ruler of the whole", "symbol": "crown", "style": "filled", "step": 1 },
+          { "id": "e", "label": "East", "detail": "Arcadius, at Constantinople", "symbol": "sunrise", "style": "outline", "step": 2 } ],
+        "edges": [ { "from": "t", "to": "w", "step": 2 }, { "from": "t", "to": "e", "step": 2 } ],
+        "accessibilityLabel": "Theodosius the First, last ruler of the whole empire, splits into a western half under Honorius at Ravenna and an eastern half under Arcadius at Constantinople." }
+    },
+    {
+      "id": "why-west", "type": "textVisual", "sourceRefs": ["s2"],
+      "contested": { "note": "Historians weigh these pressures differently, and have long debated what the \"fall of Rome\" actually means." },
+      "heading": "Why the West struggled",
+      "body": "The West had a longer and more chaotic frontier, and setbacks there caused political and social disruption. It was also less urbanized than the East, which meant less social cohesion. And Germanic peoples were on the move, many of them pushed by the arrival of the Huns.",
+      "visual": { "kind": "diagram", "layout": "column",
+        "nodes": [
+          { "id": "f", "label": "Long, chaotic frontier", "symbol": "map", "style": "outline", "step": 1 },
+          { "id": "u", "label": "Fewer cities, less cohesion", "symbol": "building", "style": "outline", "step": 2 },
+          { "id": "m", "label": "Migrations, many driven by the Huns", "symbol": "figure.walk.motion", "style": "outline", "step": 3 } ],
+        "accessibilityLabel": "Three pressures on the western empire: a long, chaotic frontier; fewer cities and less social cohesion; and migrations of peoples, many driven by the Huns." }
+    },
+    {
+      "id": "fall-or-transformation", "type": "comparison", "sourceRefs": ["s2"],
+      "contested": { "note": "This is an open debate about interpretation, not about the dates. Both sides agree on what happened; they disagree on what to call it." },
+      "heading": "Fall, or transformation?",
+      "columns": [ { "title": "A fall", "symbol": "arrow.down.right" }, { "title": "A transformation", "symbol": "arrow.triangle.2.circlepath" } ],
+      "rows": [
+        { "label": "Focus", "values": [ "Roman political authority in the West collapses", "Roman culture outlasts Roman rule in many places" ] },
+        { "label": "The East", "values": [ "A separate story", "The Roman state keeps functioning, as the Byzantine Empire" ] } ],
+      "takeaway": "Some historians describe the period as a time of vibrant transformation in the Mediterranean, rather than simply decline and fall."
+    },
+    {
+      "id": "check-fall", "type": "check",
+      "questions": [
+        { "id": "c2q1", "kind": "multipleChoice", "sourceRefs": ["s2"],
+          "prompt": "Who was the last emperor to rule a united Roman Empire?",
+          "choices": [ "Theodosius I", "Augustus", "Romulus Augustulus", "Constantine" ],
+          "answer": 0,
+          "explanation": "After Theodosius I, the empire was ruled in two halves: Arcadius in the East, Honorius in the West." },
+        { "id": "c2q2", "kind": "trueFalse", "sourceRefs": ["s2"],
+          "prompt": "Historians agree that Rome fell on a single, exact date.",
+          "answer": false,
+          "explanation": "There was no exact date. 476 is the traditional marker, and even that date may be arbitrary." } ]
+    },
+    {
+      "id": "410-to-476", "type": "steps", "style": "numbered", "sourceRefs": ["s2"],
+      "heading": "Real example: from 410 to 476",
+      "steps": [
+        { "title": "410: Alaric reaches Rome", "body": "After invading Italy, Alaric's forces attack Rome over three days. There's little physical damage, but much of the city's wealth is plundered.", "symbol": "shield.slash" },
+        { "title": "The West keeps shrinking", "body": "By the late fifth century, Roman authority has stopped being the basis of political power in much of western Europe.", "symbol": "arrow.down.forward" },
+        { "title": "476: Odoacer", "body": "A Germanic general deposes the emperor Romulus Augustulus and calls himself King of Italy, not emperor.", "symbol": "crown" },
+        { "title": "Ties to the East", "body": "Odoacer keeps up relations with the emperors in Constantinople.", "symbol": "arrow.right.circle" } ]
+    },
+    {
+      "id": "no-cliff", "type": "keyIdea", "sourceRefs": ["s2"], "symbol": "calendar.badge.exclamationmark",
+      "statement": "476 is a bookmark, not a cliff.",
+      "body": "There was no exact date when the Roman Empire fell. The eastern half didn't collapse until the fifteenth century, and in some places Roman culture lasted longer than Roman political authority."
+    },
+    {
+      "id": "east", "type": "textVisual", "sourceRefs": ["s2"],
+      "heading": "Rome continued, in the East",
+      "body": "The Roman Empire morphed into the Byzantine Empire, with a culture looking both to its Roman past and its Christian present. Under Justinian I, Eastern Roman emperor from 527 to 565, the Roman state was still very much at work.",
+      "visual": { "kind": "symbol", "name": "sunrise.fill", "caption": "The Eastern Roman (Byzantine) Empire",
+                  "accessibilityLabel": "A rising sun, standing for the eastern half of the empire." }
+    },
+    {
+      "id": "why", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Why it matters",
+      "body": "Rome's language lives on: French, Portuguese, Italian and Spanish are \"Romance\" languages, descended from Latin. Its habit of writing laws down for every citizen to read began with the Twelve Tables. And its long story remains a classic case study in how large states hold together and come apart.",
+      "visual": { "kind": "diagram", "layout": "grid",
+        "nodes": [
+          { "id": "fr", "label": "French", "style": "outline", "step": 1 }, { "id": "pt", "label": "Portuguese", "style": "outline", "step": 1 },
+          { "id": "it", "label": "Italian", "style": "outline", "step": 1 }, { "id": "es", "label": "Spanish", "style": "outline", "step": 1 } ],
+        "accessibilityLabel": "Four Romance languages descended from Latin: French, Portuguese, Italian and Spanish." }
+    },
+    {
+      "id": "recap", "type": "recap",
+      "bullets": [
+        "Rome went from a kingdom to a republic (509 BCE) run by a Senate, consuls, assemblies and tribunes, to an empire under Augustus (27 BCE).",
+        "Roads, written law and widening citizenship held it together; a third-century crisis and reforms led to two halves.",
+        "476 is the traditional end in the West, but historians debate fall versus transformation, and the East carried on." ]
+    }
+  ],
+  "finalQuiz": [
+    { "id": "f1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "What could a tribune do?",
+      "choices": [ "Block decisions by saying \"I forbid\" (veto)", "Command the army", "Appoint senators", "Declare war alone" ],
+      "answer": 0,
+      "explanation": "Ten tribunes, elected yearly by the Plebeian Assembly, could veto, which is Latin for \"I forbid\"." },
+    { "id": "f2", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "What did the Edict of Caracalla (212 CE) do?",
+      "choices": [ "Extended citizenship across the empire", "Founded Constantinople", "Ended the persecution of Christians", "Divided the empire in two" ],
+      "answer": 0,
+      "explanation": "It extended Roman citizenship across the empire." },
+    { "id": "f3", "kind": "trueFalse", "sourceRefs": ["s2"],
+      "prompt": "During the Crisis of the Third Century, more than twenty claimants competed for the throne in under fifty years.",
+      "answer": true,
+      "explanation": "From 235 to 284, upward of 26 claimants competed for the imperial throne." },
+    { "id": "f4", "kind": "multipleChoice", "sourceRefs": ["s2"],
+      "prompt": "What happened in 476?",
+      "choices": [ "Odoacer deposed Romulus Augustulus and became King of Italy", "Alaric attacked Rome", "Constantinople was dedicated", "Theodosius I divided the empire" ],
+      "answer": 0,
+      "explanation": "476 is the traditional end of the Western empire: Odoacer deposed the last western emperor and ruled as King of Italy." },
+    { "id": "f5", "kind": "trueFalse", "sourceRefs": ["s2"],
+      "prompt": "When the West ended, the Roman state disappeared everywhere.",
+      "answer": false,
+      "explanation": "The Roman state continued in the East as the Byzantine Empire, which didn't collapse until the fifteenth century." }
+  ],
+  "sources": [
+    { "id": "s1", "kind": "textbook", "title": "World History, Volume 1: to 1500",
+      "publisher": "OpenStax", "locator": "§6.4 The Roman Republic; §6.5 The Age of Augustus; §7.3 The Roman Economy; §7.4 Religion in the Roman Empire",
+      "url": "https://openstax.org/books/world-history-volume-1/pages/6-4-the-roman-republic", "accessed": "2026-11-24" },
+    { "id": "s2", "kind": "textbook", "title": "World History, Volume 1: to 1500",
+      "publisher": "OpenStax", "locator": "§10.1 The Eastward Shift; §10.2 The Byzantine Empire and Persia; §13.1 The Post-Roman West",
+      "url": "https://openstax.org/books/world-history-volume-1/pages/10-1-the-eastward-shift", "accessed": "2026-11-24" }
+  ],
+  "factCheck": { "checkedOn": "2026-11-24",
+    "notes": "All facts checked against the OpenStax sections listed. Limitation: both sources are one textbook; Britannica could not be reached for a second, independent check. Add one in the accuracy pass. The map is schematic and not to scale." }
+}

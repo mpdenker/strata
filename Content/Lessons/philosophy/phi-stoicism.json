@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "id": "phi-stoicism",
+  "topic": "philosophy",
+  "order": 2,
+  "title": "Stoicism",
+  "goal": "Understand the Stoics' core ideas (virtue, what's in your control, emotions as judgments) and how they practiced them.",
+  "minutes": 12,
+  "contentVersion": 1,
+  "sections": [
+    {
+      "id": "hook", "type": "hook", "sourceRefs": ["s1"],
+      "headline": "A former slave and an emperor followed the same philosophy.",
+      "body": "Epictetus had been enslaved. Marcus Aurelius ruled the Roman Empire. Both were Stoics, and both left writing you'll read in this lesson.",
+      "visual": { "kind": "symbol", "name": "figure.mind.and.body", "caption": "A philosophy for living",
+                  "accessibilityLabel": "A calm, seated figure." }
+    },
+    {
+      "id": "timeline", "type": "timeline", "sourceRefs": ["s1"], "scale": "linear",
+      "heading": "Five centuries of Stoics",
+      "events": [
+        { "date": "c. 300 BCE", "sortKey": -300, "title": "Zeno of Citium founds the school", "detail": "In Athens.", "approx": true },
+        { "date": "c. 230–206 BCE", "sortKey": -230, "title": "Chrysippus heads the school", "approx": true },
+        { "date": "1st century CE", "sortKey": 50, "title": "Seneca", "detail": "Adviser to the emperor Nero.", "approx": true },
+        { "date": "93 CE", "sortKey": 93, "title": "Epictetus expelled from Rome", "detail": "A former slave, banished by Domitian along with other philosophers." },
+        { "date": "161–180 CE", "sortKey": 161, "title": "Marcus Aurelius", "detail": "Roman emperor, and a Stoic." } ]
+    },
+    {
+      "id": "porch", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Philosophers of the porch",
+      "body": "The name comes from a place: the **stoa poikilê**, a porch in the Agora at Athens decorated with mural paintings, where Zeno taught. \"Stoic\" means, roughly, \"porch person.\"",
+      "visual": { "kind": "shapes", "aspectRatio": 2.0, "items": [
+        { "shape": "rect", "x": 0.08, "y": 0.12, "w": 0.84, "h": 0.1, "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "rect", "x": 0.12, "y": 0.22, "w": 0.05, "h": 0.6, "fill": "paper", "stroke": "ink", "step": 2 },
+        { "shape": "rect", "x": 0.3, "y": 0.22, "w": 0.05, "h": 0.6, "fill": "paper", "stroke": "ink", "step": 2 },
+        { "shape": "rect", "x": 0.48, "y": 0.22, "w": 0.05, "h": 0.6, "fill": "paper", "stroke": "ink", "step": 2 },
+        { "shape": "rect", "x": 0.66, "y": 0.22, "w": 0.05, "h": 0.6, "fill": "paper", "stroke": "ink", "step": 2 },
+        { "shape": "rect", "x": 0.83, "y": 0.22, "w": 0.05, "h": 0.6, "fill": "paper", "stroke": "ink", "step": 2 },
+        { "shape": "rect", "x": 0.05, "y": 0.82, "w": 0.9, "h": 0.06, "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "symbol", "x": 0.4, "y": 0.6, "name": "paintpalette", "size": 0.06, "fill": "topic", "step": 3 },
+        { "shape": "symbol", "x": 0.58, "y": 0.6, "name": "person.2.wave.2", "size": 0.07, "fill": "ink", "step": 3 } ],
+        "accessibilityLabel": "A simple colonnade: a roof on five columns, with paint and conversation symbols between them, for the painted porch where the Stoics taught." }
+    },
+    {
+      "id": "virtue", "type": "keyIdea", "sourceRefs": ["s1"], "symbol": "sparkles",
+      "statement": "Only virtue is truly good.",
+      "body": "For the Stoics, only virtue benefits a person and makes a life go well. Health, wealth and reputation are \"indifferents\": some are naturally preferred, but none is good in itself."
+    },
+    {
+      "id": "virtues", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "What virtue looks like",
+      "body": "Virtue isn't one trait but a family of them. The Stoics named **prudence** (practical wisdom), **justice**, **courage** and **moderation**. They saw these as expressions of one good character, not separate skills.",
+      "visual": { "kind": "diagram", "layout": "grid",
+        "nodes": [
+          { "id": "p", "label": "Prudence", "symbol": "lightbulb", "style": "filled", "step": 1 },
+          { "id": "j", "label": "Justice", "symbol": "scale.3d", "style": "filled", "step": 2 },
+          { "id": "c", "label": "Courage", "symbol": "shield", "style": "filled", "step": 3 },
+          { "id": "m", "label": "Moderation", "symbol": "slider.horizontal.3", "style": "filled", "step": 4 } ],
+        "accessibilityLabel": "Four virtues: prudence, justice, courage and moderation." }
+    },
+    {
+      "id": "control", "type": "textVisual", "sourceRefs": ["s2"],
+      "heading": "Two circles",
+      "body": "Epictetus's teaching starts with a sort. Some things are up to you: your opinions, aims, desires and aversions. Others aren't: your body, property, reputation and position. Peace comes from putting your effort only into the first circle.",
+      "visual": { "kind": "shapes", "aspectRatio": 1.8, "items": [
+        { "shape": "circle", "x": 0.28, "y": 0.5, "r": 0.2, "fill": "topicSoft", "stroke": "topic", "step": 1 },
+        { "shape": "text", "x": 0.28, "y": 0.38, "text": "**In your control**", "textSize": "body", "step": 1 },
+        { "shape": "text", "x": 0.28, "y": 0.6, "text": "opinion, aim, desire, aversion", "textSize": "caption", "step": 2 },
+        { "shape": "circle", "x": 0.72, "y": 0.5, "r": 0.2, "fill": "paper", "stroke": "muted", "dashed": true, "step": 1 },
+        { "shape": "text", "x": 0.72, "y": 0.38, "text": "**Not in your control**", "textSize": "body", "step": 1 },
+        { "shape": "text", "x": 0.72, "y": 0.6, "text": "body, property, reputation, position", "textSize": "caption", "step": 3 } ],
+        "accessibilityLabel": "Two circles. In your control: opinion, aim, desire, aversion. Not in your control: body, property, reputation, position." }
+    },
+    {
+      "id": "ench-1", "type": "quote", "sourceRefs": ["s2"], "publicDomain": true,
+      "text": "Some things are in our control and others not. Things in our control are opinion, pursuit, desire, aversion, and, in a word, whatever are our own actions.",
+      "speaker": "Epictetus", "work": "Enchiridion, 1", "year": "2nd century CE", "translator": "Elizabeth Carter"
+    },
+    {
+      "id": "check-basics", "type": "check",
+      "questions": [
+        { "id": "c1q1", "kind": "multipleChoice", "sourceRefs": ["s2"],
+          "prompt": "According to Epictetus, which of these is in your control?",
+          "choices": [ "Your opinions", "Your reputation", "Your property", "Your body" ],
+          "answer": 0,
+          "explanation": "Opinion, pursuit, desire and aversion are in our control; body, property and reputation are not." },
+        { "id": "c1q2", "kind": "trueFalse", "sourceRefs": ["s1"],
+          "prompt": "For the Stoics, wealth is good in itself, as long as you use it well.",
+          "answer": false,
+          "explanation": "Wealth is an \"indifferent\": possibly preferred, but only virtue is good." } ]
+    },
+    {
+      "id": "ench-5", "type": "quote", "sourceRefs": ["s2"], "publicDomain": true,
+      "text": "Men are disturbed, not by things, but by the principles and notions which they form concerning things.",
+      "speaker": "Epictetus", "work": "Enchiridion, 5", "year": "2nd century CE", "translator": "Elizabeth Carter"
+    },
+    {
+      "id": "emotions", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Emotions run on judgments",
+      "body": "The Stoics analyzed each harmful passion as a kind of judgment, often a false one, such as \"this loss is terrible for me.\" Change the judgment and the passion changes. They weren't against feeling: they described good feelings that respond to things that are genuinely good.",
+      "visual": { "kind": "diagram", "layout": "row",
+        "nodes": [
+          { "id": "e", "label": "Event", "detail": "a friend cancels", "symbol": "calendar.badge.minus", "style": "outline", "step": 1 },
+          { "id": "j", "label": "Judgment", "detail": "\"this is terrible\"", "symbol": "text.bubble", "style": "filled", "step": 2 },
+          { "id": "p", "label": "Passion", "detail": "anger, distress", "symbol": "flame", "style": "outline", "step": 3 } ],
+        "edges": [ { "from": "e", "to": "j", "step": 2 }, { "from": "j", "to": "p", "step": 3 } ],
+        "accessibilityLabel": "An event, a friend cancelling, leads to a judgment, 'this is terrible', which produces a passion such as anger or distress." }
+    },
+    {
+      "id": "marcus-harm", "type": "quote", "sourceRefs": ["s3"], "publicDomain": true,
+      "text": "Take away the complaint, \"I have been harmed,\" and the harm is taken away.",
+      "speaker": "Marcus Aurelius", "work": "Meditations, Book IV", "year": "2nd century CE", "translator": "George Long"
+    },
+    {
+      "id": "practices", "type": "steps", "style": "numbered", "sourceRefs": ["s2", "s3", "s4"],
+      "heading": "Daily practices",
+      "steps": [
+        { "title": "Preview the day", "body": "Marcus began mornings expecting difficult people: \"I shall meet with the busy-body, the ungrateful, arrogant, deceitful, envious, unsocial.\"", "symbol": "sunrise" },
+        { "title": "Sort by control", "body": "Through the day, ask Epictetus's question: is this up to me? If not, let it go.", "symbol": "circle.lefthalf.filled" },
+        { "title": "Review the night", "body": "Seneca described passing \"the whole day in review\" before sleep, asking: \"What bad habit of yours have you cured to-day?\"", "symbol": "moon.stars" } ]
+    },
+    {
+      "id": "nature", "type": "textVisual", "sourceRefs": ["s1"],
+      "heading": "Agreement with nature, citizens of one city",
+      "body": "The Stoic goal was **living in agreement with nature**, which includes our nature as rational, social beings. That led to a striking idea: all rational beings make up the citizenry of one universal city, a **cosmopolis**.",
+      "visual": { "kind": "diagram", "layout": "column",
+        "nodes": [
+          { "id": "self", "label": "You", "symbol": "person", "style": "filled", "step": 1 },
+          { "id": "city", "label": "Your city", "symbol": "building.2", "style": "outline", "step": 2 },
+          { "id": "cosmos", "label": "The cosmopolis", "detail": "all rational beings", "symbol": "globe.europe.africa", "style": "filled", "step": 3 } ],
+        "edges": [ { "from": "self", "to": "city", "step": 2 }, { "from": "city", "to": "cosmos", "step": 3 } ],
+        "accessibilityLabel": "Widening circles of belonging: you, your city, and the cosmopolis of all rational beings." }
+    },
+    {
+      "id": "stoic-vs-stoic", "type": "comparison", "sourceRefs": ["s1"],
+      "heading": "Stoicism vs. \"being stoic\"",
+      "columns": [ { "title": "Stoicism", "symbol": "building.columns" }, { "title": "\"stoic\" today", "symbol": "face.dashed" } ],
+      "rows": [
+        { "label": "Feelings", "values": [ "Harmful passions come from false judgments; good feelings are welcome", "Hide what you feel" ] },
+        { "label": "Aim", "values": [ "Virtue, living in agreement with nature", "Endure without complaint" ] } ],
+      "takeaway": "The everyday word keeps the calm and drops the philosophy."
+    },
+    {
+      "id": "check-practice", "type": "check",
+      "questions": [
+        { "id": "c2q1", "kind": "multipleChoice", "sourceRefs": ["s2"],
+          "prompt": "What disturbs people, according to Enchiridion 5?",
+          "choices": [ "Their judgments about things", "The things themselves", "Other people's opinions", "Bad luck" ],
+          "answer": 0,
+          "explanation": "\"Men are disturbed, not by things, but by the principles and notions which they form concerning things.\"" },
+        { "id": "c2q2", "kind": "trueFalse", "sourceRefs": ["s4"],
+          "prompt": "Seneca recommended reviewing your whole day each night.",
+          "answer": true,
+          "explanation": "He described passing the whole day in review before sleep, asking what bad habit he had cured that day." } ]
+    },
+    {
+      "id": "example", "type": "steps", "style": "flow",
+      "heading": "Real example: the cancelled flight",
+      "steps": [
+        { "title": "Sort it", "body": "The cancellation: not up to you. Your next move: up to you.", "symbol": "airplane.departure" },
+        { "title": "Catch the judgment", "body": "\"This ruins everything\" is an opinion, and opinions can be examined.", "symbol": "text.bubble" },
+        { "title": "Act on what's yours", "body": "Rebook, call ahead, find food. Be decent to the gate agent: justice applies here too.", "symbol": "figure.walk" },
+        { "title": "Review it tonight", "body": "What went well? What would you judge differently next time?", "symbol": "moon.stars" } ]
+    },
+    {
+      "id": "why", "type": "textVisual",
+      "heading": "Why it matters",
+      "body": "Stoicism offers a working method rather than a mood: sort what you control, examine your judgments, act well, and review. Whether or not you accept every Stoic claim, those habits are easy to test in an ordinary week.",
+      "visual": { "kind": "symbol", "name": "checklist", "caption": "Sort, examine, act, review",
+                  "accessibilityLabel": "A checklist." }
+    },
+    {
+      "id": "recap", "type": "recap",
+      "bullets": [
+        "The Stoics held that only virtue (prudence, justice, courage, moderation) is truly good; health and wealth are \"indifferents\".",
+        "Some things are in our control (opinions, aims, desires) and many aren't; we're disturbed by our judgments, not by things.",
+        "Their practices are concrete: preview the day, sort by control, review the night." ]
+    }
+  ],
+  "finalQuiz": [
+    { "id": "f1", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "Where does the name \"Stoic\" come from?",
+      "choices": [ "A painted porch in Athens where Zeno taught", "Zeno's hometown", "A Greek word for \"calm\"", "Marcus Aurelius's book" ],
+      "answer": 0,
+      "explanation": "The name derives from the stoa poikilê, a porch in the Agora at Athens decorated with mural paintings." },
+    { "id": "f2", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "How did the Stoics understand harmful emotions (passions)?",
+      "choices": [ "As judgments, often false ones", "As purely physical reactions", "As punishments from the gods", "As always good to express" ],
+      "answer": 0,
+      "explanation": "They analyzed each passion as a kind of judgment, so changing the judgment changes the passion." },
+    { "id": "f3", "kind": "trueFalse", "sourceRefs": ["s1"],
+      "prompt": "Epictetus was a Roman emperor.",
+      "answer": false,
+      "explanation": "Epictetus was a former slave; the Stoic emperor was Marcus Aurelius, who ruled from 161 to 180 CE." },
+    { "id": "f4", "kind": "multipleChoice", "sourceRefs": ["s1"],
+      "prompt": "What is the \"cosmopolis\"?",
+      "choices": [ "The one universal city of all rational beings", "Athens in Zeno's time", "Rome under Marcus Aurelius", "A Stoic school building" ],
+      "answer": 0,
+      "explanation": "The Stoics held that all rational beings are citizens of one universal city." },
+    { "id": "f5", "kind": "trueFalse", "sourceRefs": ["s1"],
+      "prompt": "Being Stoic in the philosophical sense means suppressing all feelings.",
+      "answer": false,
+      "explanation": "The Stoics targeted passions rooted in false judgments, and described good feelings that respond to genuine goods." }
+  ],
+  "sources": [
+    { "id": "s1", "kind": "encyclopedia", "title": "Stoicism",
+      "authors": "Durand, M., Shogry, S., & Baltzly, D.", "publisher": "Stanford Encyclopedia of Philosophy (Spring 2023 Edition)", "year": "2023",
+      "url": "https://plato.stanford.edu/entries/stoicism/", "accessed": "2026-11-24" },
+    { "id": "s2", "kind": "primary", "title": "The Enchiridion",
+      "authors": "Epictetus; trans. Elizabeth Carter", "publisher": "The Internet Classics Archive (MIT)",
+      "url": "http://classics.mit.edu/Epictetus/epicench.html", "accessed": "2026-11-24" },
+    { "id": "s3", "kind": "primary", "title": "Meditations",
+      "authors": "Marcus Aurelius; trans. George Long", "publisher": "The Internet Classics Archive (MIT)", "locator": "Books II and IV",
+      "url": "http://classics.mit.edu/Antoninus/meditations.html", "accessed": "2026-11-24" },
+    { "id": "s4", "kind": "primary", "title": "Of Anger, Book III",
+      "authors": "Seneca; trans. Aubrey Stewart", "publisher": "Wikisource (Bohn's Classical Library, 1900)", "locator": "Ch. 36",
+      "url": "https://en.wikisource.org/wiki/Of_Anger/Book_III", "accessed": "2026-11-24" }
+  ],
+  "factCheck": { "checkedOn": "2026-11-24",
+    "notes": "Quotes checked word for word against the MIT and Wikisource texts. Dates and the porch etymology checked against SEP's verbatim text; SEP's doctrine sections (indifferents, passions, virtues, cosmopolis) were checked from a reading summary. Re-read those sections in the accuracy pass." }
+}
